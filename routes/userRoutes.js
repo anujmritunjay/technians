@@ -8,6 +8,7 @@ router.post('/sign-up', userControllers.signUp)
 router.post('/log-in', userControllers.login)
 router.get('/me',authMiddleware, userControllers.me)
 router.delete('/delete-user/:id',authMiddleware, userControllers.deleteUser)
+router.get('/get-user/:id',authMiddleware, userControllers.getUser)
 
 
 
