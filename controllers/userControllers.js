@@ -91,3 +91,21 @@ exports.deleteUser = async(req, res, next)=>{
         return next(error)
     }
 }
+exports.getUser = async(req, res, next)=>{
+    try {
+        const { id } = req.params
+
+        const user = await User.findOne({"_id": id})
+       
+        if(!user){
+            return next(new ErrorHandler('User not found.', 404))
+        }
+       
+        res.json({
+            success: true,
+            data: user
+        })
+    } catch (error) {
+        return next(error)
+    }
+}
